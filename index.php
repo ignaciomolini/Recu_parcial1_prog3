@@ -2,6 +2,7 @@
 require_once './entidades/usuario.php';
 require_once './entidades/servicio.php';
 require_once './entidades/vehiculo.php';
+require_once './entidades/turno.php';
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -62,10 +63,10 @@ switch ($path_info) {
     case '/servicio':
         if (Usuario::validarToken($token)) {
             if ($method == 'POST') {
-                $id = $_POST['id'] ?? '';
-                $tipo = $_POST['tipo'] ?? '';   
+                $patente= $_POST['patente'] ?? '';
+                $marca = $_POST['marca'] ?? '';
+                $modelo = $_POST['modelo'] ?? '';
                 $precio = $_POST['precio'] ?? '';
-                $demora = $_POST['demora'] ?? '';
                 echo Servicio::guardarServicios($id, $tipo, $precio, $demora);
             }
         } else {
@@ -73,6 +74,21 @@ switch ($path_info) {
         }
         break;
 
+    case '/turno':
+        if (Usuario::validarToken($token)) {
+            if ($method == 'POST') {
+                $patente= $_POST['patente'] ?? '';
+                $fecha = $_POST['fecha'] ?? '';
+                $marca = Vehiculo::buscarMarcaVehiculo($patente);
+                $modelo = Vehiculo::buscarModeloVehiculo($patente); 
+                $precio = Servicio::buscarPrecioServicio($patente);
+                $tipoServicio = Servicio::buscarTipoServicio($patente);
+                echo Turno::guardarTurnos($patente, $marca, $modelo, $precio, $fecha, $tipoServicio);
+            }
+        } else {
+            echo '<br>No tiene los permisos<br>';
+        }
+        break;
 
     default:
         echo 'path incorrecto';

@@ -1,0 +1,10 @@
+[
+    {
+        "_patente": "abc123",
+        "_marca": "chevrolet",
+        "_modelo": "onix",
+        "_precio": "5000",
+        "_fecha": "19\/10\/2020",
+        "_tipoServicio": "10000km"
+    }
+]

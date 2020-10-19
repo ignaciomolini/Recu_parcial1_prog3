@@ -34,13 +34,37 @@ class Servicio extends FileHandler
 
     public static function guardarServicios($id, $tipo, $precio, $demora)
     {
-        $listaServicios = self::readServiciosJson();
         $servicio = new Servicio($id, $tipo, $precio, $demora);
-        
+        $listaServicios = self::readServiciosJson();
+         
         array_push($listaServicios, $servicio);
         self::saveServiciosJson($listaServicios);
 
         return 'Se guardo el servicio';
+    }
+
+    public static function buscarPrecioServicio($patente)
+    {
+        $listaServicios = self::readServiciosJson();
+
+        foreach ($listaServicios as $item) {
+            if ($item->_id == $patente) {
+                return $item->_precio;
+            }
+        }
+        return "No existe esa patente";
+    }
+
+    public static function buscarTipoServicio($patente)
+    {
+        $listaServicios = self::readServiciosJson();
+
+        foreach ($listaServicios as $item) {
+            if ($item->_id == $patente) {
+                return $item->_tipo;
+            }
+        }
+        return "No existe esa patente";
     }
 
     public static function saveServiciosJson($obj)

@@ -60,6 +60,30 @@ class Vehiculo extends FileHandler
         return "No existe $patente";
     }
 
+    public static function buscarMarcaVehiculo($patente)
+    {
+        $listaVehiculos = self::readVehiculosJson();
+
+        foreach ($listaVehiculos as $item) {
+            if ($item->_patente == $patente) {
+                return $item->_marca;
+            }
+        }
+        return "No existe esa patente";
+    }
+    
+    public static function buscarModeloVehiculo($patente)
+    {
+        $listaVehiculos = self::readVehiculosJson();
+
+        foreach ($listaVehiculos as $item) {
+            if ($item->_patente == $patente) {
+                return $item->_modelo;
+            }
+        }
+        return "No existe esa patente";
+    }
+
     public static function saveVehiculosJson($obj)
     {
         parent::saveJson('./archivos/vehiculos.json', $obj);
