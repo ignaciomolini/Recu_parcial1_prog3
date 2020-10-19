@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "162dac3a-a659-423d-9130-6922492decd4",
+		"name": "Recu_parcial1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Punto 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "nacho@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "nacho123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}registro",
+					"host": [
+						"{{url}}registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Punto 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "nacho@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "nacho123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}login",
+					"host": [
+						"{{url}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Punto 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "patente",
+							"value": "abc123",
+							"type": "text"
+						},
+						{
+							"key": "marca",
+							"value": "chevrolet",
+							"type": "text"
+						},
+						{
+							"key": "modelo",
+							"value": "onix",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "500000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}vehiculo",
+					"host": [
+						"{{url}}vehiculo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Punto 4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Punto 5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "10000km",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "5000",
+							"type": "text"
+						},
+						{
+							"key": "demora",
+							"value": "2 dias",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}servicio",
+					"host": [
+						"{{url}}servicio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Punto 6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
